@@ -1,2 +1,2 @@
 # Ticket-Lotto
-Test updated
+Lottery based ticket-distribution system
