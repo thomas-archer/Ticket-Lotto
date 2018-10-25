@@ -30,7 +30,7 @@ if($dbcon->connect_error){
 ?>
   
 <?php
-  //File that takes form info on event page and inserts info into database
+  //File that takes form info on buyer account creation page and inserts info into database
   if(isset($_POST['submitted'])) {
     include('connect-mysql.php');
     $name = $_POST['name'];
