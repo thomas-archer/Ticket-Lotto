@@ -1,6 +1,7 @@
 CREATE TABLE SellerEvents(
 	EventID VARCHAR(5) PRIMARY KEY,
 	EventDate DATE,
+	TicketDistDate DATE
     	Price  DECIMAL(10,2),
     	NumTickets INT,
 	City VARCHAR(25),
@@ -17,6 +18,7 @@ CREATE TABLE TicketRequests(
     	EventID VARCHAR(5),
     	TicketStatus VARCHAR(10),
     	BuyerName VARCHAR(25),
-	Buyer Email VARCHAR(25) 
-    	FOREIGN KEY(EventID) REFERENCES SellerEvents(EventID));
+	BuyerEmail VARCHAR(25) 
+    	FOREIGN KEY(EventID) REFERENCES SellerEvents(EventID),
+	PRIMARY KEY(EventID, BuyerEmail));
     
