@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Create Event</title>
+	</head>
+	<style>
+		body {
+			background-color: lightblue;
+			font-family: palatino;
+
+		}
+
+		br {
+			line-height: 200%
+		}
+
+		ul#menu {
+			border-radius: 5px;
+    		list-style-type: none;
+    		margin: 0;
+    		padding: 0;
+    		overflow: hidden;
+    		background-color: lightblue;
+		}
+		
+		ul#menu li {
+    		float: right;
+		}
+
+		ul#menu li a {
+    		display: block;
+    		color: black;
+    		text-align: center;
+    		padding: 20px;
+    		text-decoration: none;
+		}
+
+		ul#menu li a:hover {
+    		background-color: SteelBlue;
+		}
+	</style>
+
+	<body>
+		<ul id = "menu">
+  			<li><a href="homePage.html">Home</a></li>
+  			<li><a href="create.html">Create Event</a></li>
+  			<li><a href="viewEvents.html">View My Events</a></li>
+		</ul>
+		<div align="center">
+		<h2>Create Event</h2>
+
+		<hr />
+
+		<form action="create-event.php">
+
+			Event Name: <input type="text"><br>
+			Event Date: <input type="Date"><br>
+			Organization: <input type="text"><br>
+			Email: <input type="Email"><br>
+			Ticket Price: <input type="Price"><br>
+			Number Of Tickets: <input type="Number"><br>
+			Distribution Date: <input type="Date"><br>
+			<input type="submit" value="Submit">
+
+		</form>
+
+
+		</div>
+
+	</body>
+</html>
