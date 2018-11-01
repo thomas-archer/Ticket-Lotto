@@ -1,7 +1,6 @@
 CREATE TABLE SellerEvents(
 	EventID VARCHAR(5) PRIMARY KEY,
 	EventName VARCHAR(25),
-	EventURL VARCHAR(2083),
 	EventDate DATE,
 	TicketDistDate DATE,
 	Price  DECIMAL(10,2),
@@ -11,7 +10,8 @@ CREATE TABLE SellerEvents(
 	-- Zip VARCHAR(5),
 	-- 	State VARCHAR(2),
 	EventDesc MEDIUMTEXT,
-	SellerEmail VARCHAR(25));
+	SellerEmail VARCHAR(25),
+	EventURL VARCHAR(2083));
     
 	
 CREATE TABLE TicketRequests(
