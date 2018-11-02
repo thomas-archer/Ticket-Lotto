@@ -51,15 +51,17 @@
 
 		<hr />
 
-		<form action="create-event.php">
+		<form action="create-event.php" method="POST">
 
-			Event Name: <input type="text"><br>
-			Event Date: <input type="Date"><br>
-			Organization: <input type="text"><br>
-			Email: <input type="Email"><br>
-			Ticket Price: <input type="Price"><br>
-			Number Of Tickets: <input type="Number"><br>
-			Distribution Date: <input type="Date"><br>
+			Event Name: <input type="text" name="event_name_input"><br>
+			Event Date: <input type="date" name="event_date_input"><br>
+			Organization: <input type="text" name="event_organization_input"><br>
+			Distribution Date: <input type="Date" name="event_dist_date_input"><br>
+			Email: <input type="Email" name="event_seller_email_input"><br>
+			Ticket Price: <input type="number" name="event_price_input"><br>
+			Number Of Tickets: <input type="number" name="event_tickets_input"><br>
+			Event Description: <input type="text" name="event_url_input"><br>
+			Event Description: <input style="height:200px" type="text" name="event_discription_input"><br>
 			<input type="submit" value="Submit">
 
 		</form>

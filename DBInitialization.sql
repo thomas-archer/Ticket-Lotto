@@ -2,13 +2,10 @@ CREATE TABLE SellerEvents(
 	EventID VARCHAR(5) PRIMARY KEY,
 	EventName VARCHAR(25),
 	EventDate DATE,
+	EventOrganization VARCHAR(30), 
 	TicketDistDate DATE,
 	Price  DECIMAL(10,2),
 	NumTickets INT,
-	-- City VARCHAR(25), Exclude address for now?
-	-- Street VARCHAR(25),
-	-- Zip VARCHAR(5),
-	-- 	State VARCHAR(2),
 	EventDesc MEDIUMTEXT,
 	SellerEmail VARCHAR(25),
 	EventURL VARCHAR(2083));
