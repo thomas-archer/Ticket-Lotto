@@ -17,7 +17,7 @@
     $arrlength= count($TicketRequests);
     $WaitingEmails = array();
     for($i = 0; $i < $arrlength; $i++) {
-        if($TicketRequest[$i][1] == 'waiting'){
+        if($TicketRequest[$i][1] == 'Waiting'){
             $WaitingEmails[] = $TicketRequests[i];
         }
     }
@@ -26,8 +26,8 @@
 
 
   //Inputs: Number of Tickets to be distributed, EventID for desired event, Array of Emails for those waiting on a Ticket Request
-  //Outputs: None
-  //Actions; Updates the ticket status of those chosen as "distributed" and send them an email to confirm and recieve purchase link
+  //Outputs: Array of emails for those distibuted tickets
+  //Actions; Updates the ticket status of those chosen as "distributed"
   function randomlyDistributeTickets($numTickets,$EventID,$WaitingEmails){
     $arrlength= count($TicketRequests);
     if($arrlength<$numTickets){
@@ -37,11 +37,20 @@
         $numDistributed = $numTickets;
     }
     shuffle($WaitingEmails);
+    $DistributedEmails = array();
     for($i = 0; $i < $numDistributed; $i++) {
-        //Update ticket status to distributed for i using email, eventID
-        //Send email to i with link to confirm purchase
+        $sql = "UPDATE TicketRequests SET status='Distributed' WHERE EventId = $EventID and BuyerEmail = $WaitingEmails[i]";
+        if ($conn->query($sql) === TRUE) {
+            echo "Record updated successfully";
+        } 
+        else {
+            echo "Error updating record: " . $conn->error;
+        }
+        $DistributedEmails[] = $WaitingEmails[i];
     }
-    return;
+    return $DistributedEmails;
   }
-  
+
+
+
 ?>
