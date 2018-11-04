@@ -15,7 +15,7 @@ CREATE TABLE TicketRequests(
     EventID VARCHAR(5),
     TicketStatus VARCHAR(10),
     BuyerName VARCHAR(25),
-	BuyerEmail VARCHAR(25) 
+	BuyerEmail VARCHAR(25), 
     FOREIGN KEY(EventID) REFERENCES SellerEvents(EventID),
 	PRIMARY KEY(EventID, BuyerEmail));
     
