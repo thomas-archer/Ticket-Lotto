@@ -181,6 +181,13 @@ ul#menu {
 	border-top-width: 2px;
 	border-radius: 5px;
 }
+.formHeading {
+	padding-top: 15px;
+}
+#descriptionBox {
+	width: 500px;
+	height: 100px;
+}
 footer {
 	background-color: #B3B3B3;
 	padding-top: 60px;

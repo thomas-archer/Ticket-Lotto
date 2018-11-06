@@ -16,18 +16,19 @@
 			<h2>Create Event</h2>
 
 			<div class="gallery">
-				<form action="create-event.php" method="POST" class="copyright">
+				<form action="create-event.php" method="POST" class="copyright" id="createForm">
 
-					Event Name: <input type="text" name="event_name_input"><br>
-					Event Date: <input type="date" name="event_date_input"><br>
-					Organization: <input type="text" name="event_organization_input"><br>
-					Distribution Date: <input type="Date" name="event_dist_date_input"><br>
-					Email: <input type="Email" name="event_seller_email_input"><br>
-					Ticket Price: <input type="number" name="event_price_input"><br>
-					Number Of Tickets: <input type="number" name="event_tickets_input"><br>
-					Event Description: <input type="text" name="event_url_input"><br>
-					Event Description: <input style="height:200px" type="text" name="event_discription_input"><br>
-					<input type="submit" value="Submit">
+					<div class="formHeading">Event Name:</div><input type="text" name="event_name_input">
+					<div class="formHeading">Thumbnail:</div><input type="text" name="event_thumbnail_input">
+					<div class="formHeading">Event Date:</div><input type="date" name="event_date_input">
+					<div class="formHeading">Organization:</div><input type="text" name="event_organization_input">
+					<div class="formHeading">Distribution Date:</div><input type="Date" name="event_dist_date_input">
+					<div class="formHeading">Email Address:</div><input type="Email" name="event_seller_email_input">
+					<div class="formHeading">Ticket Price:</div><input type="number" name="event_price_input">
+					<div class="formHeading">Number of Tickets:</div><input type="number" name="event_tickets_input">
+					<div class="formHeading">Event Caption:</div><input type="text" name="event_caption_input">
+					<div class="formHeading">Event Description:</div><input id="descriptionBox" type="text" name="event_discription_input"><br>
+					<input type="submit" value="Submit" class="button">
 
 				</form>
 
