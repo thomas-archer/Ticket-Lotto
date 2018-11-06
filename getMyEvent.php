@@ -6,7 +6,7 @@
 
 include(connect-mysql.php);
 
-$mysql_select_db(DB_NAME) or die("FUck you");
+$mysql_select_db($dbname) or die("Fuck you!");
 $query2 = "SELECT EventName, EventDate FROM SellerEvents WHERE EventID in (SELECT EventID FROM TicketRequests WHERE BuyerEmail = 'bobbymac97@gmail.com')";
 
 $result = $dbcon->query($query2);
