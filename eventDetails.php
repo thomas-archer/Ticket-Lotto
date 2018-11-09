@@ -28,8 +28,9 @@
     </div>
   </section>
     <div align="center" class="copyright">
-		<form class="joinLottery" action="/action_page.php" target="_blank">
-			<input type="email" placeholder="Enter email to join Lottery!">
+		<form class="joinLottery" action="/join-lotto.php" method = "_POST">
+      <input type="email" placeholder="Enter email to join Lottery!" name="buyer_email_input">
+      <input type="text" placeholder="Enter email to join Lottery!" name="buyer_name_input">
 			<br>
 			<input type="submit" class="button">
 		</form>
