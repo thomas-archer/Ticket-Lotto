@@ -7,9 +7,9 @@
 	<body>
 		<div class="container">
 			<ul id = "menu">
-				<li><a href="homePage.html">Home</a></li>
-				<li><a href="create.html">Create Event</a></li>
-				<li><a href="viewEvents.html">View My Events</a></li>
+				<li><a href="index.php">Home</a></li>
+				<li><a href="create.php">Create Event</a></li>
+				<li><a href="viewEvents.php">View My Events</a></li>
 			</ul>
 			<h1 align="center">- The Ticket Lottery -</h1>
 			<div align="center" class="copyright">
