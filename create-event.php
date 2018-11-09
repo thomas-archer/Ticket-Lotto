@@ -12,6 +12,12 @@ if(isset($_POST['create_new_event'])) {
 	$event_description = $_POST['event_description_input'];
 	$event_url = $_POST['event_url_input'];
 	$sql = "INSERT INTO SellerEvents (EventName, EventOrganization, EventURL, EventDate, TicketDistDate, Price, NumTickets, EventDesc, SellerName, SellerEmail) VALUES ('event_name', 'event_organization', 'event_url', 'event_date', 'event_dist_date' 'event_price', 'event_tickets', 'event_description', 'event_seller_email";
+
+	if ($dbcon->query($sql) === TRUE) {
+		echo "New record created successfully";
+	} else {
+		echo "Error: " . $sql . "<br>" . $conn->error;
+	}
 }
 ?>
 

@@ -5,12 +5,11 @@ if(isset($_POST['submitted'])) {
   $name = $_POST['name_input'];
   $email = $_POST['email_input'];
   $sql = "INSERT INTO TicketRequests (BuyerName, BuyerEmail) VALUES ('name', 'email')";
-}
-
-if ($dbcon->query($sql) === TRUE) {
-  echo "Submission Successful!";
-} else {
-  echo "Error: " . $sql . "<br>" . $dbcon->error;
+  if ($dbcon->query($sql) === TRUE) {
+    echo "Submission Successful!";
+  } else {
+    echo "Error: " . $sql . "<br>" . $dbcon->error;
+  }
 }
 ?>
 
