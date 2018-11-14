@@ -1,6 +1,6 @@
 <?php
 //Creates new event with form info presented on create event page
-if(isset($_POST['create_new_event'])) {
+if(isset($_POST['submit'])) {
 	include('connect-mysql.php');
 	$event_name = $_POST['event_name_input'];
 	$event_date = $_POST['event_date_input'];
