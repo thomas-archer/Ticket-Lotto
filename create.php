@@ -14,7 +14,7 @@ include 'create-event.php';
 			<ul id = "menu">
 				<li><a href="index.php">Home</a></li>
 				<li><a href="create.php">Create Event</a></li>
-				<li><a href="viewEvents.php">View My Events</a></li>
+				<li><a href="viewEvents.php">Manage My Events</a></li>
 			</ul>
 			<div align="center">
 			<h2>Create Event</h2>
