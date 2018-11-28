@@ -1,3 +1,4 @@
+<?php session_start(); include('functions.php'); ?>
 <!doctype html>
 <html>
 <head>
@@ -13,25 +14,43 @@
   <ul id = "menu">
       <li><a href="index.php">Home</a></li>
 			<li><a href="create.php">Create Event</a></li>
-			<li><a href="viewEvents.php">View My Events</a></li>
+			<li><a href="viewEvents.php">Manage My Events</a></li>
   </ul>
 	
   <h2 align="center"> Event Confirmation</h2>
   <div class="copyright">
     <form action="" method="post"">
       <div class="formHeading">Insert Email:</div><br><input type="text" name="buyer_email_input">
-      <input type="submit" value="View Tickets">
+      <input type="submit" name="email_submit" value="View Tickets">
     </form>
     <br>
-    <form action="/action_page.php">
-      <select name="cars" style="width:200px">
+    <form action="" method="POST">
+      <?php
+        if(isset($_POST['email_submit'])) {
+          $_SESSION['buyer_email'] = $_REQUEST['buyer_email_input'];
+          $BuyerEvents = getBuyerEventsDist($_SESSION['buyer_email']);
+          foreach($BuyerEvents as $row) {
+            echo "<select name='events_dropdown' style='width:200px'>";
+            echo "<option value = '" . $row[0] . "'>". $row[1] . "</option>";
+            echo "</select>";
+          }
+        }
+      ?>
         <!--<option value="volvo">Volvo</option>-->
-      </select>
       <br><br>
-      <input type="radio" name="gender" value="male"> Going
-      <input type="radio" name="gender" value="female"> Can't Go
+      <input type="radio" name="confirmation_status" value="Confirmed"> Going
+      <input type="radio" name="confirmation_status" value="Removed"> Can't Go
       <br><br>
-      <input type="submit">
+
+      <input type="submit" name="status_submit" value="Confirm">
+      <?php
+          if(isset($_POST['status_submit'])) {
+            $selected_event_id = $_REQUEST['events_dropdown'];
+            $selected_status = $_REQUEST['confirmation_status'];
+            updateStatus($selected_event_id,$_SESSION['buyer_email'],$selected_status);
+            echo "<script type='text/javascript' language='Javascript'>window.location.assign('http://www.google.com');</script>";
+          }
+      ?>
     </form>
   </div>
 </div>

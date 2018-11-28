@@ -158,7 +158,7 @@
                 die("Connection failed: " . $dbcon->connect_error);
         }
         $query = "Select EventID, EventName from SellerEvents where EventID in
-                (Select distinct EventID from TicketRequests where BuyerEmail = \"$BuyerEmail\" and TicketStatus = \"distributed\")";
+                (Select distinct EventID from TicketRequests where BuyerEmail = \"$BuyerEmail\")"; #and TicketStatus = \"waiting\")";
         $result = $dbcon->query($query);
         $BuyerEvents = array();
         while($row = $result->fetch_row())
@@ -183,7 +183,7 @@
         if ($dbcon->connect_error) {
                 die("Connection failed: " . $dbcon->connect_error);
         }
-        $query = "Update TicketRequests Set status = $TicketStatus Where EventID = $EventID and BuyerEmail =\"$BuyerEmail\"";
+        $query = "Update TicketRequests Set TicketStatus = \"$TicketStatus\" Where EventID = \"$EventID\" and BuyerEmail =\"$BuyerEmail\"";
         if ($dbcon->query($query) === TRUE) {
             echo "New record created successfully";
         } else {
