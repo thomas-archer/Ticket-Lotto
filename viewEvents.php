@@ -9,7 +9,7 @@
 			<ul id = "menu">
 				<li><a href="index.php">Home</a></li>
 				<li><a href="create.php">Create Event</a></li>
-				<li><a href="viewEvents.php">View My Events</a></li>
+				<li><a href="viewEvents.php">Manage My Events</a></li>
 			</ul>
 
 			<h2 align="center">My Events</h2>
