@@ -18,6 +18,51 @@ header {
 	background-color: #5D5E5D;
 	border-bottom: 1px solid #353635;
 }
+
+.homeSearch {
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	background-color: #B6C4D2;
+	color: #FFFFFF;
+	text-transform: uppercase;
+	font-weight: lighter;
+	letter-spacing: 2px;
+	border-top-width: 2px;
+	border-radius: 5px;
+}
+
+.searchBar {
+	
+}
+
+.search-txt {
+	border: none;
+	background: none;
+	outline: none;
+	color: white;
+}
+
+#eventList {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+#eventList td, #eventList th {
+	border: 1px solid grey;
+	padding: 8px;
+	text-align: left;
+}
+
+.eventSubmit {
+	text-align: center;
+
+}
+
+
+
+
+
 ul#menu {
 			border-radius: 5px;
     		list-style-type: none;
