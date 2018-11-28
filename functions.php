@@ -1,5 +1,6 @@
 
 <?php
+
     //for use on home page
     function getSearchedEvents($EventName){
         $servername = "ticketdb.cadri9on7p25.us-east-1.rds.amazonaws.com";
@@ -20,7 +21,7 @@
                 $Events[] = $row;
             }
     $result->close();
-    $mysqli->close();
+    $dbcon->close();
     return $Events;
     }
 
@@ -72,6 +73,28 @@
     //for use on View My Events Page
     function distributeTickets($EventID)
     {
+        include 'RandomizationFunctions.php';
+        $servername = "ticketdb.cadri9on7p25.us-east-1.rds.amazonaws.com";
+        $username = "ticketlotto";
+        $password = "ticketlotto";
+        $dbname = "ticketlotto";
+        // Create connection
+            $dbcon = new mysqli($servername, $username, $password, $dbname);
+            // Check connection
+            if ($dbcon->connect_error) {
+                    die("Connection failed: " . $dbcon->connect_error);
+            }
+            $query = "Select NumTickets from SellerEvents where EventID = \"$EventID\"";
+            $result = $dbcon->query($query);
+            $NumTickets = int;
+            while($row = $result->fetch_row())
+            {
+                $NumTickets = $row;
+            }
+            $result->close();
+            $dbcon->close();
+        
+
 
     }
 
@@ -143,7 +166,7 @@
             $BuyerEvents[] = $row;
         }
         $result->close();
-        $mysqli->close();
+        $dbcon->close();
         return $BuyerEvents;
     }
 
