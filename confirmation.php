@@ -19,7 +19,7 @@
 	
   <h2 align="center"> Event Confirmation</h2>
   <div class="copyright">
-    <form action="" method="post"">
+    <form action="" method="post">
       <div class="formHeading">Insert Email:</div><br><input type="text" name="buyer_email_input">
       <input type="submit" name="email_submit" value="View Tickets">
     </form>
