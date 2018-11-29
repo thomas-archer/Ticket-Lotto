@@ -73,7 +73,7 @@
     //for use on View My Events Page
     function distributeTickets($EventID)
     {
-        include 'RandomizationFunctions.php';
+       include 'RandomizationFunctions.php';
         $servername = "ticketdb.cadri9on7p25.us-east-1.rds.amazonaws.com";
         $username = "ticketlotto";
         $password = "ticketlotto";
@@ -89,13 +89,18 @@
             $NumTickets = int;
             while($row = $result->fetch_row())
             {
-                $NumTickets = $row;
+                $NumTickets = $row[0];
             }
             $result->close();
             $dbcon->close();
-        
-
-
+            $Emails = getTicketRequests($EventID);;
+            $WaitingEmails = getOnlyWaitingEmails($Emails);
+            randomlyDistributeTickets($NumTickets,$EventID,$WaitingEmails);
+            $Emails = getTicketRequests($EventID);
+            $WaitingEmails = getOnlyWaitingEmails($Emails);
+            $DistributedEmails = getOnlyDistributedEmails($Emails);
+            email_distributed_tickets($DistributedEmails,"fuck yeah this works");
+            email_waiting_list($WaitingEmails);
     }
 
     //For use on create event page
