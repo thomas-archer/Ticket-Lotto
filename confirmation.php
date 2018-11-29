@@ -44,11 +44,20 @@
 
       <input type="submit" name="status_submit" value="Confirm">
       <?php
-          if(isset($_POST['status_submit'])) {
+          if(isset($_POST['status_submit']) and $_REQUEST['events_dropdown']) {
             $selected_event_id = $_REQUEST['events_dropdown'];
             $selected_status = $_REQUEST['confirmation_status'];
             updateStatus($selected_event_id,$_SESSION['buyer_email'],$selected_status);
-            echo "<script type='text/javascript' language='Javascript'>window.location.assign('http://www.google.com');</script>";
+            if($selected_status=='Confirmed') {
+              $selected_URL = "http://".getURL($selected_event_id)[0][0];
+              echo "<script type='text/javascript' language='Javascript'> window.location.href='$selected_URL'; </script>";
+            }
+            else {
+              echo '<script type="text/javascript">'; 
+              echo 'alert("You have been succesfully removed from the lottery for this event.");'; 
+              echo 'window.location.href = "index.php";';
+              echo '</script>';
+            }
           }
       ?>
     </form>
