@@ -49,7 +49,7 @@
             $selected_status = $_REQUEST['confirmation_status'];
             updateStatus($selected_event_id,$_SESSION['buyer_email'],$selected_status);
             if($selected_status=='Confirmed') {
-              $selected_URL = "http://".getURL($selected_event_id)[0][0];
+              $selected_URL = getURL($selected_event_id)[0][0];
               echo "<script type='text/javascript' language='Javascript'> window.location.href='$selected_URL'; </script>";
             }
             else {
