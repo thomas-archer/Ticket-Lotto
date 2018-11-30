@@ -194,13 +194,12 @@ ul#menu {
 	text-transform: uppercase;
 	font-weight: bold;
 	letter-spacing: 2px;
-	border: 3px solid #6DC7D0;
+	border: 3px solid #FFFFFF;
+	background-color: #6DC7D0;
 	color: #FFFFFF;
 	transition: all 0.3s linear;
 }
 .button:hover {
-	background-color: #6DC7D0;
-	color: #FFFFFF;
 	cursor: pointer;
 }
 .copyright {
