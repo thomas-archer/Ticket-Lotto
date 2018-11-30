@@ -19,8 +19,8 @@
 
 			<div align="center" class="copyright">
 			<form action="" method="post">
-      			<div class="formHeading">Insert Email:</div><br><input type="text" name="seller_email_input">
-      			<input type="submit" name="email_submit" value="View Events">
+      			<div class="formHeading">Enter Your Seller Email:</div><input type="text" name="seller_email_input">
+      			<input type="submit" name="email_submit" value="Submit">
    			</form>
 			</div>
 			<br>
@@ -30,21 +30,21 @@
 						<th>Event Name</th>
 						<th>Event Date</th>
 						<th>Price</th>
-						<th>Distribution Date</th>
+						<th>Ticket Release Date</th>
 						<th>Tickets Still Available</th>
-						<th>Select</th>
+						<th>Select an Event</th>
 					</tr>
 				<?php
         		if(isset($_POST['email_submit'])) {
 				$SellerEvents = getSellerEvents($_POST['seller_email_input']);
           		foreach($SellerEvents as $row) {
 					echo "<tr>
+					<td>". $row[0]. "</td>
 					<td>". $row[1]. "</td>
 					<td>". $row[2]. "</td>
-					<td>". $row[4]. "</td>
 					<td>". $row[3]. "</td>
-					<td>". $row[5]. "</td>
-					<td> <input type='radio' name='selection' value=". $row[0]. "> Select </td>
+					<td>". $row[4]. "</td>
+					<td> <input type='radio' name='selection' value=". $row[5]. "> </td>
 				  </tr>";
           		}
         		}
@@ -60,6 +60,11 @@
 					distributeTickets($selection);
 				}
 			?>
+			<script>
+			function submitAlert(){
+				alert("Tickets Distributed!");
+			}
+	</script>
 		</div>
 	</body>
 </html>
