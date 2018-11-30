@@ -20,7 +20,7 @@ include 'create-event.php';
 			<h2>Create Event</h2>
 
 			<div class="gallery">
-				<form action="" method="post" class="copyright" id="createForm">
+				<form action="" method="post" class="copyright" id="createForm" onsubmit= "alert('Event Created!')">
 
 					<div class="formHeading">Event Name:</div><input type="text" name="event_name_input">
 					<div class="formHeading">Event Date:</div><input type="date" name="event_date_input">
