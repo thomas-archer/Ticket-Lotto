@@ -1,9 +1,9 @@
 CREATE TABLE SellerEvents(
 	EventID INT NOT NULL AUTO_INCREMENT,
 	EventName VARCHAR(25),
-	EventDate VARCHAR(25),
+	EventDate DATE,
 	EventOrganization VARCHAR(30), 
-	TicketDistDate VARCHAR(25),
+	TicketDistDate DATE,
 	Price DECIMAL(10,2),
 	NumTickets INT,
 	EventDesc VARCHAR(100),
