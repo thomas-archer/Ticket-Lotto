@@ -42,9 +42,7 @@
                     die("Connection failed: " . $dbcon->connect_error);
             }
             $query = "INSERT INTO TicketRequests VALUES ($EventID,\"waiting\",\"$BuyerName\",\"$BuyerEmail\")";
-            if ($dbcon->query($query) === TRUE) {
-                echo "New record created successfully";
-            } else {
+            if (!($dbcon->query($query) === TRUE)) {
                 echo "Error: " . $sql . "<br>" . $dbcon->error;
             }
             $dbcon->close();
@@ -62,7 +60,7 @@
                 if ($dbcon->connect_error) {
                         die("Connection failed: " . $dbcon->connect_error);
                 }
-                $query = "Select * from SellerEvents where SellerEmail = \"$SellerEmail\"";
+                $query = "Select EventName,EventDate,Price,TicketDistDate,NumTickets,EventID from SellerEvents where SellerEmail = \"$SellerEmail\"";
                 $result = $dbcon->query($query);
                 $Events = array();
                 while($row = $result->fetch_row())
@@ -106,7 +104,7 @@
             $Emails = getTicketRequests($EventID);
             $WaitingEmails = getOnlyWaitingEmails($Emails);
             $DistributedEmails = getOnlyDistributedEmails($Emails);
-            email_distributed_tickets($DistributedEmails,"fuck yeah this works");
+            email_distributed_tickets($DistributedEmails,"http://localhost:8000/confirmation.php");
             email_waiting_list($WaitingEmails);
     }
 
@@ -125,9 +123,7 @@
             }
         $query = "INSERT INTO SellerEvents (EventID, EventName, EventOrganization, EventURL, EventDate, TicketDistDate, Price, NumTickets, EventDesc, SellerEmail) 
         VALUES (\"$EventID\",\"$EventName\", \"$Organizer\", \"$URL\", \"$EventDate\", \"$TicketDistDate\", $Price, $NumTickets, \"$EventDesc\", \"$SellerEmail\")";
-        if ($dbcon->query($query) === TRUE) {
-            echo "New record created successfully";
-        } else {
+        if (!($dbcon->query($query) === TRUE)) {
             echo "Error: " . $sql . "<br>" . $dbcon->error;
         }
         $dbcon->close();
