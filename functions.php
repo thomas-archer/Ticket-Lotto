@@ -2,6 +2,8 @@
 <?php
 
     //for use on home page
+    //returns events give the event name
+    //returns all values in the database on null input
     function getSearchedEvents($EventName){
         $Events = array();
         $servername = "ticketdb.cadri9on7p25.us-east-1.rds.amazonaws.com";
@@ -30,6 +32,7 @@
     }
 
     //for use on home page
+    //adds a new ticket request to the database given the neccessary info
     function insertTicketRequest($EventID,$BuyerName,$BuyerEmail){
         $servername = "ticketdb.cadri9on7p25.us-east-1.rds.amazonaws.com";
         $username = "ticketlotto";
@@ -49,6 +52,7 @@
     }
 
     //for use on View My Events Page
+	//gets all events for a seller given the seller's email
 	function getSellerEvents($SellerEmail){
             $servername = "ticketdb.cadri9on7p25.us-east-1.rds.amazonaws.com";
             $username = "ticketlotto";
@@ -73,6 +77,7 @@
     }
 
     //for use on View My Events Page
+    //distributes the stored number of tickets for an event given its eventID
     function distributeTickets($EventID)
     {
         if($EventID==NULL) {
@@ -109,6 +114,7 @@
     }
 
     //For use on create event page
+    //Inserts new event given the required info
     function insertNewEvent($EventName,$Organizer,$URL,$EventDate,$TicketDistDate,$Price,$NumTickets,$EventDesc,$SellerEmail)
     {
         $servername = "ticketdb.cadri9on7p25.us-east-1.rds.amazonaws.com";
@@ -129,7 +135,7 @@
         $dbcon->close();
     }
 
-    
+    //Gets all ticket requests for an event given its eventid
     function getTicketRequestsEvent($EventID){
         $servername = "ticketdb.cadri9on7p25.us-east-1.rds.amazonaws.com";
         $username = "ticketlotto";
@@ -154,6 +160,7 @@
     }
 
     //for use on ticket verification page
+    //gets all events that a buyer has been distributed a ticket for, given the buyer's email
     function getBuyerEventsDist($BuyerEmail){
         $servername = "ticketdb.cadri9on7p25.us-east-1.rds.amazonaws.com";
         $username = "ticketlotto";
@@ -179,6 +186,7 @@
     }
 
     //for use on ticket verification page
+    //updates the ticket status given whether or not the buyer has confirmed
     function updateStatus($EventID,$BuyerEmail,$TicketStatus)
     {
         $servername = "ticketdb.cadri9on7p25.us-east-1.rds.amazonaws.com";
@@ -202,6 +210,7 @@
     }
 
     //for use on ticket verification page
+    //gets purchase url for an event given eventid
     function getURL($EventID)
     {
         $servername = "ticketdb.cadri9on7p25.us-east-1.rds.amazonaws.com";
