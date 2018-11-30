@@ -1,3 +1,6 @@
+<?php
+	include 'functions.php';
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -15,50 +18,48 @@
 			<h2 align="center">My Events</h2>
 
 			<div align="center" class="copyright">
-				<input type="text" placeholder="Enter your email">
+			<form action="" method="post">
+      			<div class="formHeading">Insert Email:</div><br><input type="text" name="seller_email_input">
+      			<input type="submit" name="email_submit" value="View Events">
+   			</form>
 			</div>
-
-			<div class="gallery">
-				<div class="thumbnail"> <a href="#"><img src="images/bkg_06.jpg" alt="" width="2000" class="cards"/></a>
-					<h4>TITLE</h4>
-					<p class="tag">HTML, CSS, JS, WordPress</p>
-					<p class="text_column">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				</div>
-				<div class="thumbnail"> <a href="#"><img src="images/bkg_06.jpg" alt="" width="2000" class="cards"/></a>
-					<h4>TITLE</h4>
-					<p class="tag">HTML, CSS, JS, WordPress</p>
-					<p class="text_column">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				</div>
-				<div class="thumbnail"> <a href="#"><img src="images/bkg_06.jpg" alt="" width="2000" class="cards"/></a>
-					<h4>TITLE</h4>
-					<p class="tag">HTML, CSS, JS, WordPress</p>
-					<p class="text_column">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				</div>
-				<div class="thumbnail"> <a href="#"><img src="images/bkg_06.jpg" alt="" width="2000" class="cards"/></a>
-					<h4>TITLE</h4>
-					<p class="tag">HTML, CSS, JS, WordPress</p>
-					<p class="text_column">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				</div>
-				<div class="thumbnail"> <a href="#"><img src="images/bkg_06.jpg" alt="" width="2000" class="cards"/></a>
-					<h4>TITLE</h4>
-					<p class="tag">HTML, CSS, JS, WordPress</p>
-					<p class="text_column">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				</div>
-				<div class="thumbnail"> <a href="#"><img src="images/bkg_06.jpg" alt="" width="2000" class="cards"/></a>
-					<h4>TITLE</h4>
-					<p class="tag">HTML, CSS, JS, WordPress</p>
-					<p class="text_column">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				</div>
-				<div class="thumbnail"> <a href="#"><img src="images/bkg_06.jpg" alt="" width="2000" class="cards"/></a>
-					<h4>TITLE</h4>
-					<p class="tag">HTML, CSS, JS, WordPress</p>
-					<p class="text_column">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				</div>
-				<div class="thumbnail"> <a href="#"><img src="images/bkg_06.jpg" alt="" width="2000" class="cards"/></a>
-					<h4>TITLE</h4>
-					<p class="tag">HTML, CSS, JS, WordPress</p>
-					<p class="text_column">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-				</div>
+			<br>
+			<form action='' method="POST" onsubmit="submitAlert()">
+			<table id='eventList'>
+					<tr>
+						<th>Event Name</th>
+						<th>Event Date</th>
+						<th>Price</th>
+						<th>Distribution Date</th>
+						<th>Tickets Still Available</th>
+						<th>Select</th>
+					</tr>
+				<?php
+        		if(isset($_POST['email_submit'])) {
+				$SellerEvents = getSellerEvents($_POST['seller_email_input']);
+          		foreach($SellerEvents as $row) {
+					echo "<tr>
+					<td>". $row[1]. "</td>
+					<td>". $row[2]. "</td>
+					<td>". $row[4]. "</td>
+					<td>". $row[3]. "</td>
+					<td>". $row[5]. "</td>
+					<td> <input type='radio' name='selection' value=". $row[0]. "> Select </td>
+				  </tr>";
+          		}
+        		}
+      			?>
+			</table>
+			<br>
+			<div align="center">
+				<input type="submit" value="Distribute Tickets">
 			</div>
+			<?php
+				if(isset($_POST)){
+					$selection = $_POST['selection'];
+					distributeTickets($selection);
+				}
+			?>
+		</div>
 	</body>
 </html>
