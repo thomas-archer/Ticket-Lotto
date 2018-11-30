@@ -10,7 +10,6 @@ $dbname = "ticketlotto";
 
 #Now runs the function, but error in insert into
 if(isset($_POST['event_name_input'])) {
-	$test_id = rand(1,1000);
 	$event_name = $_POST['event_name_input'];
 	$event_date = $_POST['event_date_input'];
 	$event_organization = $_POST['event_organization_input'];
@@ -32,7 +31,7 @@ if(isset($_POST['event_name_input'])) {
 	// $event_description = 'this is a description';
 	// $event_url = 'https://www.google.com';
 	
-	insertNewEvent($test_id,$event_name,$event_organization,$event_url,$event_date,$event_dist_date,$event_price,$event_tickets,$event_description,$event_seller_email);
+	insertNewEvent($event_name,$event_organization,$event_url,$event_date,$event_dist_date,$event_price,$event_tickets,$event_description,$event_seller_email);
 }
 ?>
 
