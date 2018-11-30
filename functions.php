@@ -104,7 +104,7 @@
     }
 
     //For use on create event page
-    function insertNewEvent($EventName,$Organizer,$URL,$EventDate,$TicketDistDate,$Price,$NumTickets,$EventDesc,$SellerEmail)
+    function insertNewEvent($EventID,$EventName,$Organizer,$URL,$EventDate,$TicketDistDate,$Price,$NumTickets,$EventDesc,$SellerEmail)
     {
         $servername = "ticketdb.cadri9on7p25.us-east-1.rds.amazonaws.com";
         $username = "ticketlotto";
@@ -116,8 +116,8 @@
             if ($dbcon->connect_error) {
                     die("Connection failed: " . $dbcon->connect_error);
             }
-        $query = "INSERT INTO SellerEvents (EventName, EventOrganization, EventURL, EventDate, TicketDistDate, Price, NumTickets, EventDesc, SellerName, SellerEmail) 
-        VALUES (\"$EventName\", \"$Organizer\", \"$URL\", \"$EventDate\", \"$TicketDistDate\", $Price, $NumTickets, \"$EventDesc\", \"$SellerEmail\")";
+        $query = "INSERT INTO SellerEvents (EventID, EventName, EventOrganization, EventURL, EventDate, TicketDistDate, Price, NumTickets, EventDesc, SellerEmail) 
+        VALUES (\"$EventID\",\"$EventName\", \"$Organizer\", \"$URL\", \"$EventDate\", \"$TicketDistDate\", $Price, $NumTickets, \"$EventDesc\", \"$SellerEmail\")";
         if ($dbcon->query($query) === TRUE) {
             echo "New record created successfully";
         } else {
