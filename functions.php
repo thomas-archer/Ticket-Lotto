@@ -3,6 +3,7 @@
 
     //for use on home page
     function getSearchedEvents($EventName){
+        $Events = array();
         $servername = "ticketdb.cadri9on7p25.us-east-1.rds.amazonaws.com";
         $username = "ticketlotto";
         $password = "ticketlotto";
@@ -14,8 +15,11 @@
                     die("Connection failed: " . $dbcon->connect_error);
             }
             $query = "Select EventID,EventName,EventDate,TicketDistDate,Price from SellerEvents where EventName = \"$EventName\"";
+            if($EventName == NULL)
+            {
+                $query= 'Select EventID,EventName,EventDate,TicketDistDate,Price from SellerEvents';
+            }
             $result = $dbcon->query($query);
-            $Events = array();
             while($row = $result->fetch_row())
             {
                 $Events[] = $row;
