@@ -30,8 +30,8 @@
 							<th>Event Name</th>
 							<th>Event Date</th>
 							<th>Price</th>
-							<th>Distribution Date</th>
-							<th>Select</th>
+							<th>Ticket Release Date</th>
+							<th>Select an Event</th>
 						</tr>
 
 						<?php
@@ -48,7 +48,7 @@
 								        		<td>". $row[2]. "</td>
 								        		<td>". $row[4]. "</td>
 								        		<td>". $row[3]. "</td>
-								        		<td> <input type='radio' name='selection' value=". $row[0]. "> Select </td>
+								        		<td> <input type='radio' name='selection' value=". $row[0]. "> </td>
 								        	  </tr>";
 								    }
 								}else {
@@ -63,7 +63,7 @@
 								        		<td>". $row[2]. "</td>
 								        		<td>". $row[4]. "</td>
 								        		<td>". $row[3]. "</td>
-								        		<td> <input type='radio' name='selection' value=". $row[0]. "> Select </td>
+								        		<td> <input type='radio' name='selection' value=". $row[0]. "> </td>
 								        	  </tr>";
 								}
 						}
@@ -82,6 +82,10 @@
 
 			<?php
 				if(isset($_POST)){
+					if($_POST['selection'] == NULL)
+					{
+						return;
+					}
 					$selection = $_POST['selection'];
 					$name = $_POST['name'];
 					$email = $_POST['email'];
