@@ -32,17 +32,6 @@ header {
 	border-radius: 5px;
 }
 
-.searchBar {
-	
-}
-
-.search-txt {
-	border: none;
-	background: none;
-	outline: none;
-	color: white;
-}
-
 #eventList {
 	border-collapse: collapse;
 	width: 100%;

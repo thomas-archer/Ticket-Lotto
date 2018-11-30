@@ -29,11 +29,11 @@
         if(isset($_POST['email_submit'])) {
           $_SESSION['buyer_email'] = $_REQUEST['buyer_email_input'];
           $BuyerEvents = getBuyerEventsDist($_SESSION['buyer_email']);
+          echo "<select name='events_dropdown' style='width:200px'>";
           foreach($BuyerEvents as $row) {
-            echo "<select name='events_dropdown' style='width:200px'>";
             echo "<option value = '" . $row[0] . "'>". $row[1] . "</option>";
-            echo "</select>";
           }
+          echo "</select>";
         }
       ?>
         <!--<option value="volvo">Volvo</option>-->
