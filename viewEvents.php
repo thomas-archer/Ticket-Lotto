@@ -52,10 +52,10 @@
 			</table>
 			<br>
 			<div align="center">
-				<input type="submit" value="Distribute Tickets">
+				<input type="submit" name="distribute_submit" value="Distribute Tickets">
 			</div>
 			<?php
-				if(isset($_POST)){
+				if(isset($_POST['distribute_submit'])){
 					$selection = $_POST['selection'];
 					distributeTickets($selection);
 				}

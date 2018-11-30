@@ -77,6 +77,9 @@
     //for use on View My Events Page
     function distributeTickets($EventID)
     {
+        if($EventID==NULL) {
+            return;
+        }
        include 'RandomizationFunctions.php';
         $servername = "ticketdb.cadri9on7p25.us-east-1.rds.amazonaws.com";
         $username = "ticketlotto";

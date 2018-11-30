@@ -21,7 +21,7 @@ if(isset($_POST['event_name_input'])) {
 	$event_description = $_POST['event_description_input'];
 	$event_url = $_POST['event_url_input'];
 	#Test info (so you don't have to keep filling out form)
-	// $test_id='000';
+	// $test_id = rand(1,1000);
 	// $event_name = 'this event';
 	// $event_date = '2019/01/01';
 	// $event_organization = 'this organization';

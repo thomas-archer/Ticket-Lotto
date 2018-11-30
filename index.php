@@ -51,9 +51,21 @@
 								        		<td> <input type='radio' name='selection' value=". $row[0]. "> Select </td>
 								        	  </tr>";
 								    }
-								/*}else {
-								    echo "0 results";
-								}*/
+								}else {
+									$Event = NULL;
+									$result = getSearchedEvents($Event);
+
+								//if ($result->num_rows > 0) {
+								    // output data of each row
+								    foreach($result as $row) {
+								        echo "<tr>
+								        		<td>". $row[1]. "</td>
+								        		<td>". $row[2]. "</td>
+								        		<td>". $row[4]. "</td>
+								        		<td>". $row[3]. "</td>
+								        		<td> <input type='radio' name='selection' value=". $row[0]. "> Select </td>
+								        	  </tr>";
+								}
 						}
 						?>
 				</table>
